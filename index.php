@@ -17,5 +17,8 @@ if(isset($path[2])){ $parametro = $path[2];}else{ $parametro = ''; }
 
 $method = $_SERVER['REQUEST_METHOD'];
 
-include_once "classes/db.class.php";
-include_once "api/clientes/clientes.php";
+$GLOBALS['secretJWT'] = '123456';
+
+include_once "classes/autoload.php";
+new Autoload();
+
