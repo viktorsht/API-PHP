@@ -13,7 +13,8 @@ class Clientes{
             echo json_encode(["dados" => "não encontrado"]);
         }
     }
-    public function listarUnico(){
+    public function listarUnico($parametro){
+        var_dump($parametro);
         $db = DB::connect();
         $query = $db->prepare("SELECT * FROM user WHERE id={$parametro}");
         $query->execute();
@@ -61,7 +62,7 @@ class Clientes{
             echo json_encode(["dados" => "Dados não inseridos"]);
         }
     }
-    public function atualizar(){
+    public function atualizar($parametro){
         array_shift($_POST);
         $sql = "UPDATE user SET ";
         $contador=1;
@@ -85,7 +86,7 @@ class Clientes{
             echo json_encode(["dados" => "Dados não atualizados"]);
         }
     }
-    public function deletar(){
+    public function deletar($parametro){
         $sql = "DELETE FROM user WHERE id={$parametro}";
         $db = DB::connect();
         $query = $db->prepare($sql);

@@ -4,21 +4,16 @@ header('Content-type: application/json');
 
 date_default_timezone_set("America/Sao_Paulo");
 
-if(isset($_GET['path'])){
-    $path = explode("/",$_GET['path']);
-}
-else{
-    echo "Caminho não existe 1";
-    exit;
-}
-if(isset($path[0])){ $api = $path[0];}else{ echo "Caminho não existe 2"; exit; }
-if(isset($path[1])){ $acao = $path[1];}else{ $acao = ''; }
-if(isset($path[2])){ $parametro = $path[2];}else{ $parametro = ''; }
-
-$method = $_SERVER['REQUEST_METHOD'];
-
 $GLOBALS['secretJWT'] = '123456';
 
 include_once "classes/autoload.php";
 new Autoload();
 
+$rota = new Rotas();
+$rota->add('POST','/usuarios/login','Usuarios::login', false);
+$rota->add('GET', '/clientes/lista', 'Clientes::listarTodos', true);
+$rota->add('GET', '/clientes/lista/[PARAMETRO]', 'Clientes::listarUnico', true);
+$rota->add('PUT', '/clientes/atualizar/[PARAMETRO]', 'Clientes::atualizar', true);
+$rota->add('DELETE', '/clientes/deletar/[PARAMETRO]', 'Clientes::deletar', true);
+
+$rota->ir($_GET['path']);

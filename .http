@@ -5,4 +5,19 @@ Content-Type: application/x-www-form-urlencoded
 
 login=mr.santos
 &senha=senha
+###
+
+GET http://localhost/api/clientes/lista HTTP/1.1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoidmlrdG9yIHNhbnRvcyIsImV4cGlyZXNfaW4iOjE2NzI0NzYzNDJ9.Ri0vq2d18cGgDuc5KxFikY2_5g_w_uT7ArWnCo4k3c4
+
+###
+GET http://localhost/api/clientes/lista/9 HTTP/1.1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoidmlrdG9yIHNhbnRvcyIsImV4cGlyZXNfaW4iOjE2NzI0NzQ0MTB9.tCAbJryzbeYYYbstYwDzoyvdadnVr97QpO_mNiYF_Gc
+
+###
+POST http://localhost/api/clientes/atualizar/1 HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+_method=PUT  
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoidmlrdG9yIHNhbnRvcyIsImV4cGlyZXNfaW4iOjE2NzI0NzQ0MTB9.tCAbJryzbeYYYbstYwDzoyvdadnVr97QpO_mNiYF_Gc
+
 
